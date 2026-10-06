@@ -1,0 +1,25 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: development
+
+  app:
+    image: busybox
+    command: ["sh", "-c", "while true; do echo 'App service is running'; sleep 10; done"]
+
+  web1:
+    build:
+      context: .
+      dockerfile: Dockerfile.web1
+    ports:
+      - "8081:80"
+
+  web2:
+    build:
+      context: .
+      dockerfile: Dockerfile.web2
+    ports:
+      - "8082:80"
