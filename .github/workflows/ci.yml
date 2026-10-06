@@ -13,5 +13,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run CI test
-        run: echo "GitHub Actions is working!"
+      - name: Run application tests
+        run: bash tests/test_app.sh
